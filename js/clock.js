@@ -1,9 +1,8 @@
 $(document).ready(function(){
 	
-var countDownDate = new Date("Dec 16, 2018 00:00:01").getTime();
+var countDownDate = new Date("Dec 16, 2018 13:20:00").getTime();
 
 var x = setInterval(myTimer, 1000);
-var choice = 0;
 
 function myTimer() {
 	
@@ -18,28 +17,22 @@ function myTimer() {
 	var hours = Math.floor((tj % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 	var minutes = Math.floor((tj % (1000 * 60 * 60)) / (1000 * 60));
 	var seconds = Math.floor((tj % (1000 * 60)) / 1000);
-	var daysLeft = days + Math.floor(choice);
+
 	// Display the result in the element with id="demo"
-	document.getElementById("count-down").innerHTML = daysLeft + " Days " + hours + " Hours "
+	document.getElementById("count-down").innerHTML = days + " Days " + hours + " Hours "
   + minutes + " Minutes " + seconds + " Seconds";
+	
+	document.getElementById("weeks").innerHTML = "Weeks: " + (days % 7);
 
 	// If the count down is finished, write some text 
+	if (days < 7) {
+		document.getElementById("weeks").innerHTML = "LAST WEEK!";
+	}
 	if (tj < 0) {
 		clearInterval(x);
 		document.getElementById("count-down").innerHTML = "TJ 0";
+		document.getElementById("weeks").innerHTML = "WEEKS: 0";
 	}
 }
-
-//Check for button clicks and change daysLeft
-$( ".b16" ).click(function() {
-choice = 0; 
+	
 });
-$( ".b17" ).click(function() {
-choice = 1;
-});
-$( ".b18" ).click(function() {
-choice = 2;
-});
-
-});
-
