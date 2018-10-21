@@ -17,7 +17,7 @@ function myTimer() {
 	var hours = Math.floor((tj % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 	var minutes = Math.floor((tj % (1000 * 60 * 60)) / (1000 * 60));
 	var seconds = Math.floor((tj % (1000 * 60)) / 1000);
-	var weeks = Math.floor(tj / (1000 * 60 * 60 * 24 * 7));
+	var weeks = Math.round(tj / (1000 * 60 * 60 * 24 * 7));
 
 	// Display the result in the element with id="demo"
 	document.getElementById("count-down").innerHTML = days + " Days " + hours + " Hours "
